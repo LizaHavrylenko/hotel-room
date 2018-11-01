@@ -53,7 +53,7 @@ html, body {
 }
 .image-wrapper__description-3{
     @include text-on-image(260px);
-    left: 270px;
+    left: 370px;
     font-size: 1rem;
 }
 .image-wrapper__photos-number{
@@ -183,7 +183,7 @@ html, body {
     height: 25px; 
     margin-top: 10px;
     border-radius: 2px;
-    @include text-on-image(413px); 
+    @include text-on-image(408px); 
     @include flex-allignment;
 }
 .option-1__bonus-text{
@@ -296,7 +296,14 @@ html, body {
         top: 290px; 
     }
     .option-1__bonus{
-         display:none;
+        @include text-on-image(515px);  
+        width: 120px;
+        height: 45px;
+    }
+}
+@media screen and (max-width: 486px) {
+    .option-1__bonus{
+        display: none;
     }
 }
 @media screen and (max-width: 460px) {
@@ -307,10 +314,7 @@ html, body {
     .image-wrapper__description-2{
         top: 340px; 
         width: 90px;
-         font-size: 0.7rem;
-    }
-    .option-1__bonus{
-        display:none;
+        font-size: 0.7rem;
     }
     .option-1__button, .option-2__button{
         width: 110px;
