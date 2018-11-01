@@ -1,0 +1,322 @@
+@import 'mixins'; 
+
+html, body { 
+    margin: 0;
+    height: 100%;
+    font-family: "Helvetica", sans-serif;
+} 
+.grid-container{
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0.2fr 1fr 1fr 0.5fr;
+    grid-gap: 20px;
+    grid-template-areas:
+        "image room-settings room-settings . "
+        "image top-facilities top-facilities . "
+        "not-included not-included . . "
+        "option-1 option-1 option-1 option-1"
+        "option-2 option-2 option-2 option-2"
+        "footer footer footer footer";
+}
+.image-wrapper{
+    grid-area: image;
+    position: relative;
+}
+.image-wrapper__image{
+    width: 100%;
+    height: 100%;
+    display: block;   
+}
+.image-wrapper__header-info{
+    display: flex;
+    flex-direction: column;
+}
+.image-wrapper__header{
+   @include text-on-image(10px); 
+   font-size: 1.3rem;
+}
+.image-wrapper__description-1{
+   @include text-on-image(35px);
+   font-size: 1.1rem;
+}
+.image-wrapper__description-2{
+    @include text-on-image(60px);
+    width: 120px;
+    height: 20px;
+    text-align: center;
+    background-color: rgb(250, 185, 28);
+    padding-top: 3px;
+    border-radius: 2px;
+    left: 0px;
+    font-size: 0.9rem;
+}
+.image-wrapper__description-3{
+    @include text-on-image(260px);
+    left: 270px;
+    font-size: 1rem;
+}
+.image-wrapper__photos-number{
+    display: inline-block;
+    color: white;
+}
+.image-wrapper__photos-image{
+    @include icon-settings(1em);
+}
+.room-settings{
+    @include facilities(room-settings);
+    border-bottom: 1px solid rgb(236, 236, 236);
+    grid-template-areas: 
+        "settings . "
+        "square bed"
+        "people smoking";
+}
+.room-settings__header{
+    grid-area: settings;
+}
+.room-settings__square{
+    grid-area: square;
+}
+.room-settings__square-image{
+    @include icon-settings(1em);
+}
+.room-settings__people{
+    grid-area: people;
+}
+.room-settings__people-image{
+    @include icon-settings(1em);
+}
+.room-settings__bed{
+    grid-area: bed;
+    @include flex-allignment;
+}
+.room-settings__bed-image{
+    display: inline-block;
+    @include icon-settings(1.2em);
+}
+.room-settings__bed-text{
+    display: inline-block;
+    width: 130px;
+}
+.room-settings__smoking{
+    grid-area: smoking;
+}
+.room-settings__smoking-image{
+    @include icon-settings(1.2em);
+}
+.top-facilities{
+    @include facilities(top-facilities);
+    border-bottom: 1px solid rgb(236, 236, 236);
+    grid-template-areas: 
+        "facilities . "
+        "wi-fi shower"
+        "safe conditioning"
+        " . details";
+}
+.top-facilities__header{
+    grid-area: facilities;
+}
+.top-facilities__wi-fi{
+    grid-area: wi-fi;
+}
+.top-facilities__wi-fi-image{
+    @include icon-settings(1em);
+}
+.top-facilities__safe{
+    grid-area: safe;
+}
+.top-facilities__safe-image{
+    @include icon-settings(1em);
+}
+.top-facilities__shower{
+    grid-area: shower;
+}
+.top-facilities__shower-image{
+    @include icon-settings(1em);
+}
+.top-facilities__conditioning{
+    grid-area: conditioning;
+}
+.top-facilities__conditioner-image{
+    @include icon-settings(1em);
+}
+.top-facilities__details{
+    grid-area: details;
+    color: rgb(53, 135, 224);
+}
+.not-included{
+    grid-area: not-included;
+    margin-left: 10px;
+}
+.option-1{ 
+    @include option-grid(option-1);
+    background-color: rgb(235, 243, 251);
+    border-bottom: 2px solid rgb(53, 135, 224);
+    grid-template-areas: 
+        "payment-1 services-1 price-1 book-1"
+        "payment-1 services-1 price-1 book-1"
+        "payment-1 services-1 price-1 book-1"
+        "payment-1 services-1 price-1 book-1";
+}
+.option-1__payment{
+    @include options(payment-1);
+}
+.option-1__cancelation-cheked, .option-2__cancelation-cheked{
+    @include icon-settings(1.2em);
+}
+.option-1__cancelation-info, .option-2__cancelation-info{
+    @include info-icon;
+}
+.option-1__cancelation-text, .option-2__cancelation-text{
+    font-size: 1em;
+}
+.option-1__payment-details, .option-2__payment-details{
+    padding-top: 5px;
+    margin-left: 33px;
+}
+.option-1__payment-info, .option-2__payment-info{
+    @include info-icon;
+}
+.option-1__bonus{
+    background-color: rgb(53, 135, 224);
+    width: 220px;
+    height: 25px; 
+    margin-top: 10px;
+    border-radius: 2px;
+    @include text-on-image(413px); 
+    @include flex-allignment;
+}
+.option-1__bonus-text{
+    margin-left: 10px;
+    font-size: 0.9em;
+}
+.option-1__bonus-image{
+    @include icon-settings(1.2em);
+    padding-left: 10px;
+}
+.option-1__services{
+    @include options(services-1);
+}
+.option-1__wi-fi-image, .option-2__wi-fi-image{
+    @include icon-settings(1.2em);
+}
+.option-1__food-image, .option-2__food-image{
+    @include icon-settings(1.2em);
+}
+.option-1__bed-image, .option-2__bed-image{
+    @include icon-settings(1.2em);
+}
+.option-1__price{
+    @include options(price-1);
+}
+.option-1__exact-price, .option-2__exact-price{
+    font-size: 2em;
+}
+.option-1__book{
+    @include options(book-1); 
+}
+.option-1__button, .option-2__button{
+    margin-top: 20px;
+    color: white;
+    background-color: rgb(66, 190, 86);
+    height: 35px;
+    width: 150px;
+    border-radius: 3px;
+    box-shadow: 0 3px #999;
+        &:hover{
+            background-color:rgb(250, 185, 28);
+        }    
+        &:active {
+            box-shadow: 0 1px #666;
+            transform: translateY(3px);
+        }
+}
+.option-2{
+    @include option-grid(option-2); 
+    border: 1px solid rgb(236, 236, 236);
+    grid-template-areas: 
+        "payment-2 services-2 price-2 book-2"
+        "payment-2 services-2 price-2 book-2"
+        "payment-2 services-2 price-2 book-2"
+        "payment-2 services-2 price-2 book-2";
+
+}
+.option-2__payment{
+    @include options(payment-2);
+}
+.option-2__services{
+    @include options(services-2);
+}
+.option-2__wi-fi-info{
+    @include info-icon;
+}
+.option-2__price{
+    @include options(price-2);
+}
+ 
+.option-2__exact-price_crossed{
+    font-size: 1.3em;
+}
+.option-2__book{
+    @include options(book-2); 
+}
+.option-2__exact-price_crossed{
+    font-size: 1.3em;
+    color: grey;
+    text-decoration: line-through;
+}
+.option-1__cancelation_green-text, .option-2__cancelation_green-text, .option-2__best-price_green-text{
+    color: rgb(66, 190, 86);
+}
+.footer{
+    grid-area: footer;
+    text-align: center;
+    color: rgb(53, 135, 224);
+    margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+    .grid-container{
+        grid-template-areas:
+        "image room-settings room-settings . "
+        " . top-facilities top-facilities . "
+        "not-included not-included . . "
+        "option-1 option-1 option-1 option-1"
+        "option-2 option-2 option-2 option-2"
+        "footer footer footer footer";
+    }
+    .image-wrapper__header{
+        color:black;
+        top: 210px;
+    }
+    .image-wrapper__description-1{
+        color:black;
+        top: 260px;
+    }
+    .image-wrapper__description-2{
+        top: 290px; 
+    }
+    .option-1__bonus{
+         display:none;
+    }
+}
+@media screen and (max-width: 460px) {
+    .image-wrapper__description-1{
+        color:black;
+        top: 290px;
+    }
+    .image-wrapper__description-2{
+        top: 340px; 
+        width: 90px;
+         font-size: 0.7rem;
+    }
+    .option-1__bonus{
+        display:none;
+    }
+    .option-1__button, .option-2__button{
+        width: 110px;
+    }
+    .image-wrapper__image{
+        height:70%;
+    }
+}
+ 

@@ -1,0 +1,46 @@
+@mixin options($grid-area){
+    grid-area: $grid-area;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+@mixin option-grid($grid-area){
+    grid-area: $grid-area;
+    font-size: 0.9em;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    border-radius: 3px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr;
+}
+@mixin facilities($grid-area){
+    grid-area: $grid-area;
+    display: grid;
+    font-size: 1em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr;
+}
+@mixin text-on-image($top){
+   position: absolute;
+   top: $top;
+   left: 10px;
+   color: white;
+}
+@mixin icon-settings($param){
+    width: $param;
+    height: $param;
+    margin-right: 10px;
+}
+@mixin info-icon{
+    @include icon-settings(0.8em);
+    margin-left: 5px;
+}
+@mixin flex-allignment{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+ 
