@@ -7,6 +7,7 @@ html, body {
 } 
 .grid-container{
     display: grid;
+    -ms-display: grid;
     height: 100%;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 0.2fr 1fr 1fr 0.5fr;
@@ -18,9 +19,21 @@ html, body {
         "option-1 option-1 option-1 option-1"
         "option-2 option-2 option-2 option-2"
         "footer footer footer footer";
+    height: 100%;
+    -ms-grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    -ms-grid-template-rows: 1fr 1fr 0.2fr 1fr 1fr 0.5fr;
+    -ms-grid-gap: 20px;
+    -ms-grid-template-areas:
+        "image room-settings room-settings . "
+        "image top-facilities top-facilities . "
+        "not-included not-included . . "
+        "option-1 option-1 option-1 option-1"
+        "option-2 option-2 option-2 option-2"
+        "footer footer footer footer";
 }
 .image-wrapper{
     grid-area: image;
+    -ms-grid-area: image;
     position: relative;
 }
 .image-wrapper__image{
@@ -70,24 +83,32 @@ html, body {
         "settings . "
         "square bed"
         "people smoking";
+    -ms-grid-template-areas: 
+        "settings . "
+        "square bed"
+        "people smoking";
 }
 .room-settings__header{
     grid-area: settings;
+    -ms-grid-area: settings;
 }
 .room-settings__square{
     grid-area: square;
+    -ms-grid-area: square;
 }
 .room-settings__square-image{
     @include icon-settings(1em);
 }
 .room-settings__people{
     grid-area: people;
+    -ms-grid-area: people;
 }
 .room-settings__people-image{
     @include icon-settings(1em);
 }
 .room-settings__bed{
     grid-area: bed;
+    -ms-grid-area: bed;
     @include flex-allignment;
 }
 .room-settings__bed-image{
@@ -100,6 +121,7 @@ html, body {
 }
 .room-settings__smoking{
     grid-area: smoking;
+    -ms-grid-area: smoking;
 }
 .room-settings__smoking-image{
     @include icon-settings(1.2em);
@@ -112,40 +134,52 @@ html, body {
         "wi-fi shower"
         "safe conditioning"
         " . details";
+    -ms-grid-template-areas: 
+    "facilities . "
+    "wi-fi shower"
+    "safe conditioning"
+    " . details";
 }
 .top-facilities__header{
     grid-area: facilities;
+    -ms-grid-area: facilities;
 }
 .top-facilities__wi-fi{
     grid-area: wi-fi;
+    -ms-grid-area: wi-fi;
 }
 .top-facilities__wi-fi-image{
     @include icon-settings(1em);
 }
 .top-facilities__safe{
     grid-area: safe;
+    -ms-grid-area: safe;
 }
 .top-facilities__safe-image{
     @include icon-settings(1em);
 }
 .top-facilities__shower{
     grid-area: shower;
+    -ms-grid-area: shower;
 }
 .top-facilities__shower-image{
     @include icon-settings(1em);
 }
 .top-facilities__conditioning{
     grid-area: conditioning;
+    -ms-grid-area: conditioning;
 }
 .top-facilities__conditioner-image{
     @include icon-settings(1em);
 }
 .top-facilities__details{
     grid-area: details;
+    -ms-grid-area: details;
     color: rgb(53, 135, 224);
 }
 .not-included{
     grid-area: not-included;
+    -ms-grid-area: not-included;
     margin-left: 10px;
 }
 .option-1{ 
@@ -239,6 +273,11 @@ html, body {
         "payment-2 services-2 price-2 book-2"
         "payment-2 services-2 price-2 book-2"
         "payment-2 services-2 price-2 book-2";
+    -ms-grid-template-areas: 
+        "payment-2 services-2 price-2 book-2"
+        "payment-2 services-2 price-2 book-2"
+        "payment-2 services-2 price-2 book-2"
+        "payment-2 services-2 price-2 book-2";
 
 }
 .option-2__payment{
@@ -270,6 +309,7 @@ html, body {
 }
 .footer{
     grid-area: footer;
+    -ms-grid-area: footer;
     text-align: center;
     color: rgb(53, 135, 224);
     margin-bottom: 20px;
@@ -277,6 +317,13 @@ html, body {
 @media screen and (max-width: 768px) {
     .grid-container{
         grid-template-areas:
+        "image room-settings room-settings . "
+        " . top-facilities top-facilities . "
+        "not-included not-included . . "
+        "option-1 option-1 option-1 option-1"
+        "option-2 option-2 option-2 option-2"
+        "footer footer footer footer";
+        -ms-grid-template-areas:
         "image room-settings room-settings . "
         " . top-facilities top-facilities . "
         "not-included not-included . . "
